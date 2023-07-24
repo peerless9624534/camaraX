@@ -1,0 +1,108 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include-fixed",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include"
+					],
+					"linkDirectories" : 
+					[
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/lib",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/lib",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"gcc",
+						"gcc_s",
+						"c",
+						"gcc",
+						"gcc_s"
+					]
+				},
+				"path" : "mips-linux-gnu-gcc",
+				"version" : "7.2.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0/backward",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include-fixed",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include"
+					],
+					"linkDirectories" : 
+					[
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/lib",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/lib",
+						"/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"stdc++",
+						"m",
+						"gcc_s",
+						"gcc",
+						"c",
+						"gcc_s",
+						"gcc"
+					]
+				},
+				"path" : "mips-linux-gnu-g++",
+				"version" : "7.2.0"
+			},
+			"language" : "CXX",
+			"sourceFileExtensions" : 
+			[
+				"C",
+				"M",
+				"c++",
+				"cc",
+				"cpp",
+				"cxx",
+				"m",
+				"mm",
+				"mpp",
+				"CPP",
+				"ixx",
+				"cppm"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

@@ -1,0 +1,393 @@
+The system is: Linux - 4.4.0-19041-Microsoft - x86_64
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/sj/camaraX/build/CMakeFiles/3.25.1/CompilerIdCXX/a.out"
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/sj/camaraX/build/CMakeFiles/3.25.1/CompilerIdC/a.out"
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/sj/camaraX/build/CMakeFiles/CMakeScratch/TryCompile-7z4y1d
+
+Run Build Command(s):/usr/bin/ninja cmTC_7a834 && [1/2] Building CXX object CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o
+Using built-in specs.
+COLLECT_GCC=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-g++
+Target: mips-linux-gnu
+Configured with: /home/users/ylli/ingenic_toolchain/project/src/gcc-7-2017.11/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='-D__CS_SOURCERYGXX_MAJ__=2017 -D__CS_SOURCERYGXX_MIN__=11 -D__CS_SOURCERYGXX_REV__=32' --enable-languages=c,c++,fortran --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-glibc-version=2.29 --with-pkgversion='Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14' --disable-nls --prefix=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery --with-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --disable-libcc1 --enable-poison-system-directories --with-python-dir=mips-linux-gnu/share/gdb/python --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-private=default_option_mglibc_mfp64 SED=sed
+Thread model: posix
+gcc version 7.2.0 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/cc1plus -quiet -v -iprefix /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/ -isysroot /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc -D_GNU_SOURCE -D __CS_SOURCERYGXX_MAJ__=2017 -D __CS_SOURCERYGXX_MIN__=11 -D __CS_SOURCERYGXX_REV__=32 /home/sj/tool/cmake-3.25.1/Modules/CMakeCXXCompilerABI.cpp -mel -quiet -dumpbase CMakeCXXCompilerABI.cpp -march=mips32r2 -mhard-float -mllsc -mplt -mips32r2 -msynci -mabi=32 -mglibc -mfp64 -mabs=2008 -mnan=2008 -mno-shared -auxbase-strip CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccBoGMBz.s
+GNU C++14 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) version 7.2.0 (mips-linux-gnu)
+	compiled by GNU C version 4.4.6 20120305 (Red Hat 4.4.6-4), GMP version 6.0.0, MPFR version 3.1.3-p4, MPC version 1.0.3, isl version isl-0.12-4-g7cefb9d-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0"
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu"
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/backward"
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/include"
+ignoring nonexistent directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/local/include"
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/include-fixed"
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/backward
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include-fixed
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/include
+End of search list.
+GNU C++14 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) version 7.2.0 (mips-linux-gnu)
+	compiled by GNU C version 4.4.6 20120305 (Red Hat 4.4.6-4), GMP version 6.0.0, MPFR version 3.1.3-p4, MPC version 1.0.3, isl version isl-0.12-4-g7cefb9d-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 4efedb97f5c9c4bf37548d17fd944aef
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/as -v -EL -mips32r2 -O1 -no-mdebug -mabi=32 -march=mips32r2 -mfp64 -mnan=2008 -mno-shared -mhard-float -call_nonpic -o CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccBoGMBz.s
+GNU assembler version 2.27 (mips-linux-gnu) using BFD version (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) 2.27
+COMPILER_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/
+LIBRARY_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+[2/2] Linking CXX executable cmTC_7a834
+Using built-in specs.
+COLLECT_GCC=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-g++
+COLLECT_LTO_WRAPPER=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper
+Target: mips-linux-gnu
+Configured with: /home/users/ylli/ingenic_toolchain/project/src/gcc-7-2017.11/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='-D__CS_SOURCERYGXX_MAJ__=2017 -D__CS_SOURCERYGXX_MIN__=11 -D__CS_SOURCERYGXX_REV__=32' --enable-languages=c,c++,fortran --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-glibc-version=2.29 --with-pkgversion='Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14' --disable-nls --prefix=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery --with-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --disable-libcc1 --enable-poison-system-directories --with-python-dir=mips-linux-gnu/share/gdb/python --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-private=default_option_mglibc_mfp64 SED=sed
+Thread model: posix
+gcc version 7.2.0 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) 
+COMPILER_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/
+LIBRARY_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_7a834' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/collect2 -plugin /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/liblto_plugin.so -plugin-opt=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccB67674.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc --eh-frame-hdr -EL -mips32r2 -dynamic-linker /lib/ld-linux-mipsn8.so.1 -melf32ltsmip -o cmTC_7a834 /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0 -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_7a834' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/backward]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include-fixed]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/include]
+  end of search list found
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/backward] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0/backward]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include-fixed] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include-fixed]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/include] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include]
+  implicit include dirs: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include/c++/7.2.0/backward;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include-fixed;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mips-linux-gnu-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/sj/camaraX/build/CMakeFiles/CMakeScratch/TryCompile-7z4y1d]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/ninja cmTC_7a834 && [1/2] Building CXX object CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-g++]
+  ignore line: [Target: mips-linux-gnu]
+  ignore line: [Configured with: /home/users/ylli/ingenic_toolchain/project/src/gcc-7-2017.11/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='-D__CS_SOURCERYGXX_MAJ__=2017 -D__CS_SOURCERYGXX_MIN__=11 -D__CS_SOURCERYGXX_REV__=32' --enable-languages=c,c++,fortran --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-glibc-version=2.29 --with-pkgversion='Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14' --disable-nls --prefix=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery --with-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --disable-libcc1 --enable-poison-system-directories --with-python-dir=mips-linux-gnu/share/gdb/python --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-private=default_option_mglibc_mfp64 SED=sed]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.2.0 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32']
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/cc1plus -quiet -v -iprefix /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/ -isysroot /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc -D_GNU_SOURCE -D __CS_SOURCERYGXX_MAJ__=2017 -D __CS_SOURCERYGXX_MIN__=11 -D __CS_SOURCERYGXX_REV__=32 /home/sj/tool/cmake-3.25.1/Modules/CMakeCXXCompilerABI.cpp -mel -quiet -dumpbase CMakeCXXCompilerABI.cpp -march=mips32r2 -mhard-float -mllsc -mplt -mips32r2 -msynci -mabi=32 -mglibc -mfp64 -mabs=2008 -mnan=2008 -mno-shared -auxbase-strip CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccBoGMBz.s]
+  ignore line: [GNU C++14 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) version 7.2.0 (mips-linux-gnu)]
+  ignore line: [	compiled by GNU C version 4.4.6 20120305 (Red Hat 4.4.6-4)  GMP version 6.0.0  MPFR version 3.1.3-p4  MPC version 1.0.3  isl version isl-0.12-4-g7cefb9d-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0"]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu"]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/backward"]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/include"]
+  ignore line: [ignoring nonexistent directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/mips-linux-gnu]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include/c++/7.2.0/backward]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include-fixed]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) version 7.2.0 (mips-linux-gnu)]
+  ignore line: [	compiled by GNU C version 4.4.6 20120305 (Red Hat 4.4.6-4)  GMP version 6.0.0  MPFR version 3.1.3-p4  MPC version 1.0.3  isl version isl-0.12-4-g7cefb9d-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 4efedb97f5c9c4bf37548d17fd944aef]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32']
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/as -v -EL -mips32r2 -O1 -no-mdebug -mabi=32 -march=mips32r2 -mfp64 -mnan=2008 -mno-shared -mhard-float -call_nonpic -o CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccBoGMBz.s]
+  ignore line: [GNU assembler version 2.27 (mips-linux-gnu) using BFD version (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) 2.27]
+  ignore line: [COMPILER_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32']
+  ignore line: [[2/2] Linking CXX executable cmTC_7a834]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper]
+  ignore line: [Target: mips-linux-gnu]
+  ignore line: [Configured with: /home/users/ylli/ingenic_toolchain/project/src/gcc-7-2017.11/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='-D__CS_SOURCERYGXX_MAJ__=2017 -D__CS_SOURCERYGXX_MIN__=11 -D__CS_SOURCERYGXX_REV__=32' --enable-languages=c,c++,fortran --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-glibc-version=2.29 --with-pkgversion='Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14' --disable-nls --prefix=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery --with-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --disable-libcc1 --enable-poison-system-directories --with-python-dir=mips-linux-gnu/share/gdb/python --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-private=default_option_mglibc_mfp64 SED=sed]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.2.0 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) ]
+  ignore line: [COMPILER_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_7a834' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32']
+  link line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/collect2 -plugin /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/liblto_plugin.so -plugin-opt=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccB67674.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc --eh-frame-hdr -EL -mips32r2 -dynamic-linker /lib/ld-linux-mipsn8.so.1 -melf32ltsmip -o cmTC_7a834 /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0 -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccB67674.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-mips32r2] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-mipsn8.so.1] ==> ignore
+    arg [-melf32ltsmip] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_7a834] ==> ignore
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib]
+    arg [CMakeFiles/cmTC_7a834.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crt1.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crti.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/crtend.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crtn.o]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/lib]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/lib]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit objs: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crt1.o;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crti.o;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/crtend.o;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crtn.o]
+  implicit dirs: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/lib;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/lib;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib]
+  implicit fwks: []
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/sj/camaraX/build/CMakeFiles/CMakeScratch/TryCompile-ktatnw
+
+Run Build Command(s):/usr/bin/ninja cmTC_d1d0c && [1/2] Building C object CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o
+Using built-in specs.
+COLLECT_GCC=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-gcc
+Target: mips-linux-gnu
+Configured with: /home/users/ylli/ingenic_toolchain/project/src/gcc-7-2017.11/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='-D__CS_SOURCERYGXX_MAJ__=2017 -D__CS_SOURCERYGXX_MIN__=11 -D__CS_SOURCERYGXX_REV__=32' --enable-languages=c,c++,fortran --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-glibc-version=2.29 --with-pkgversion='Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14' --disable-nls --prefix=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery --with-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --disable-libcc1 --enable-poison-system-directories --with-python-dir=mips-linux-gnu/share/gdb/python --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-private=default_option_mglibc_mfp64 SED=sed
+Thread model: posix
+gcc version 7.2.0 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o' '-c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/cc1 -quiet -v -iprefix /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/ -isysroot /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc -D __CS_SOURCERYGXX_MAJ__=2017 -D __CS_SOURCERYGXX_MIN__=11 -D __CS_SOURCERYGXX_REV__=32 /home/sj/tool/cmake-3.25.1/Modules/CMakeCCompilerABI.c -mel -quiet -dumpbase CMakeCCompilerABI.c -march=mips32r2 -mhard-float -mllsc -mplt -mips32r2 -msynci -mabi=32 -mglibc -mfp64 -mabs=2008 -mnan=2008 -mno-shared -auxbase-strip CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o -version -o /tmp/cc4LCJ8f.s
+GNU C11 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) version 7.2.0 (mips-linux-gnu)
+	compiled by GNU C version 4.4.6 20120305 (Red Hat 4.4.6-4), GMP version 6.0.0, MPFR version 3.1.3-p4, MPC version 1.0.3, isl version isl-0.12-4-g7cefb9d-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/include"
+ignoring nonexistent directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/local/include"
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/include-fixed"
+ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include-fixed
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/include
+End of search list.
+GNU C11 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) version 7.2.0 (mips-linux-gnu)
+	compiled by GNU C version 4.4.6 20120305 (Red Hat 4.4.6-4), GMP version 6.0.0, MPFR version 3.1.3-p4, MPC version 1.0.3, isl version isl-0.12-4-g7cefb9d-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: de52a4beacdab0463ec17b22f7d44821
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o' '-c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/as -v -EL -mips32r2 -O1 -no-mdebug -mabi=32 -march=mips32r2 -mfp64 -mnan=2008 -mno-shared -mhard-float -call_nonpic -o CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o /tmp/cc4LCJ8f.s
+GNU assembler version 2.27 (mips-linux-gnu) using BFD version (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) 2.27
+COMPILER_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/
+LIBRARY_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o' '-c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+[2/2] Linking C executable cmTC_d1d0c
+Using built-in specs.
+COLLECT_GCC=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-gcc
+COLLECT_LTO_WRAPPER=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper
+Target: mips-linux-gnu
+Configured with: /home/users/ylli/ingenic_toolchain/project/src/gcc-7-2017.11/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='-D__CS_SOURCERYGXX_MAJ__=2017 -D__CS_SOURCERYGXX_MIN__=11 -D__CS_SOURCERYGXX_REV__=32' --enable-languages=c,c++,fortran --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-glibc-version=2.29 --with-pkgversion='Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14' --disable-nls --prefix=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery --with-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --disable-libcc1 --enable-poison-system-directories --with-python-dir=mips-linux-gnu/share/gdb/python --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-private=default_option_mglibc_mfp64 SED=sed
+Thread model: posix
+gcc version 7.2.0 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) 
+COMPILER_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/
+LIBRARY_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d1d0c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/collect2 -plugin /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/liblto_plugin.so -plugin-opt=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc36pINo.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc --eh-frame-hdr -EL -mips32r2 -dynamic-linker /lib/ld-linux-mipsn8.so.1 -melf32ltsmip -o cmTC_d1d0c /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0 -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d1d0c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include-fixed]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include]
+    add: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/include]
+  end of search list found
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include-fixed] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include-fixed]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include]
+  collapse include dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/include] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include]
+  implicit include dirs: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include-fixed;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/include;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mips-linux-gnu-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/sj/camaraX/build/CMakeFiles/CMakeScratch/TryCompile-ktatnw]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/ninja cmTC_d1d0c && [1/2] Building C object CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-gcc]
+  ignore line: [Target: mips-linux-gnu]
+  ignore line: [Configured with: /home/users/ylli/ingenic_toolchain/project/src/gcc-7-2017.11/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='-D__CS_SOURCERYGXX_MAJ__=2017 -D__CS_SOURCERYGXX_MIN__=11 -D__CS_SOURCERYGXX_REV__=32' --enable-languages=c,c++,fortran --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-glibc-version=2.29 --with-pkgversion='Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14' --disable-nls --prefix=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery --with-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --disable-libcc1 --enable-poison-system-directories --with-python-dir=mips-linux-gnu/share/gdb/python --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-private=default_option_mglibc_mfp64 SED=sed]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.2.0 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o' '-c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32']
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/cc1 -quiet -v -iprefix /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/ -isysroot /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc -D __CS_SOURCERYGXX_MAJ__=2017 -D __CS_SOURCERYGXX_MIN__=11 -D __CS_SOURCERYGXX_REV__=32 /home/sj/tool/cmake-3.25.1/Modules/CMakeCCompilerABI.c -mel -quiet -dumpbase CMakeCCompilerABI.c -march=mips32r2 -mhard-float -mllsc -mplt -mips32r2 -msynci -mabi=32 -mglibc -mfp64 -mabs=2008 -mnan=2008 -mno-shared -auxbase-strip CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o -version -o /tmp/cc4LCJ8f.s]
+  ignore line: [GNU C11 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) version 7.2.0 (mips-linux-gnu)]
+  ignore line: [	compiled by GNU C version 4.4.6 20120305 (Red Hat 4.4.6-4)  GMP version 6.0.0  MPFR version 3.1.3-p4  MPC version 1.0.3  isl version isl-0.12-4-g7cefb9d-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/include"]
+  ignore line: [ignoring nonexistent directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/include-fixed"]
+  ignore line: [ignoring duplicate directory "/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/../../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/include-fixed]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/include]
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C11 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) version 7.2.0 (mips-linux-gnu)]
+  ignore line: [	compiled by GNU C version 4.4.6 20120305 (Red Hat 4.4.6-4)  GMP version 6.0.0  MPFR version 3.1.3-p4  MPC version 1.0.3  isl version isl-0.12-4-g7cefb9d-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: de52a4beacdab0463ec17b22f7d44821]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o' '-c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32']
+  ignore line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/as -v -EL -mips32r2 -O1 -no-mdebug -mabi=32 -march=mips32r2 -mfp64 -mnan=2008 -mno-shared -mhard-float -call_nonpic -o CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o /tmp/cc4LCJ8f.s]
+  ignore line: [GNU assembler version 2.27 (mips-linux-gnu) using BFD version (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) 2.27]
+  ignore line: [COMPILER_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o' '-c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32']
+  ignore line: [[2/2] Linking C executable cmTC_d1d0c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/mips-linux-gnu-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper]
+  ignore line: [Target: mips-linux-gnu]
+  ignore line: [Configured with: /home/users/ylli/ingenic_toolchain/project/src/gcc-7-2017.11/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='-D__CS_SOURCERYGXX_MAJ__=2017 -D__CS_SOURCERYGXX_MIN__=11 -D__CS_SOURCERYGXX_REV__=32' --enable-languages=c,c++,fortran --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-glibc-version=2.29 --with-pkgversion='Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14' --disable-nls --prefix=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery --with-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/home/users/ylli/ingenic_toolchain/project/obj/pkg-2017.11-32-mips-linux-gnu/mips-2017.11-32-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --disable-libcc1 --enable-poison-system-directories --with-python-dir=mips-linux-gnu/share/gdb/python --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/home/users/ylli/ingenic_toolchain/project/install/opt/codesourcery/mips-linux-gnu/bin --with-private=default_option_mglibc_mfp64 SED=sed]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.2.0 (Ingenic Linux-Release5.1.1.a-Default(xburst2(fp64)+glibc2.29) 2022.03-01 09:37:14) ]
+  ignore line: [COMPILER_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib/:/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d1d0c' '-march=mips32r2' '-mhard-float' '-mllsc' '-mplt' '-mips32r2' '-msynci' '-mabi=32' '-mglibc' '-mfp64' '-mabs=2008' '-mnan=2008' '-mno-shared' '-EL' '-D' '__CS_SOURCERYGXX_MAJ__=2017' '-D' '__CS_SOURCERYGXX_MIN__=11' '-D' '__CS_SOURCERYGXX_REV__=32']
+  link line: [ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/collect2 -plugin /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/liblto_plugin.so -plugin-opt=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc36pINo.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc --eh-frame-hdr -EL -mips32r2 -dynamic-linker /lib/ld-linux-mipsn8.so.1 -melf32ltsmip -o cmTC_d1d0c /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0 -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib -L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../libexec/gcc/mips-linux-gnu/7.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc36pINo.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-mips32r2] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux-mipsn8.so.1] ==> ignore
+    arg [-melf32ltsmip] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_d1d0c] ==> ignore
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib]
+    arg [-L/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib] ==> dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib]
+    arg [CMakeFiles/cmTC_d1d0c.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o]
+    arg [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o] ==> obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crt1.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crt1.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crti.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crti.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/crtend.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/crtend.o]
+  collapse obj [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib/crtn.o] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crtn.o]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../lib/gcc/mips-linux-gnu/7.2.0/../../../../mips-linux-gnu/lib] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/lib]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/lib] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/lib]
+  collapse library dir [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/bin/../mips-linux-gnu/libc/usr/lib] ==> [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crt1.o;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crti.o;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/crtbegin.o;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/crtend.o;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib/crtn.o]
+  implicit dirs: [/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/lib;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/lib;/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/lib]
+  implicit fwks: []
+
+

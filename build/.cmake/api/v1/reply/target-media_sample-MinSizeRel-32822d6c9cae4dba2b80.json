@@ -1,0 +1,1793 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "media_sample"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"link_directories",
+			"target_link_libraries",
+			"add_compile_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 304,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 197,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 311,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 42,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 52,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 62,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 65,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 68,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 155,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 156,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 157,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 158,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 159,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 160,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 161,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 162,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 163,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 164,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 165,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 168,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 169,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 170,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 171,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 172,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 173,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 174,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 175,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 176,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 177,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 178,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 179,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 180,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 181,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 182,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 183,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 184,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 185,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 186,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 187,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 188,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 189,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 190,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 191,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 192,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 193,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 194,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-Os -DNDEBUG"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "CONFIG_BABY"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "CONFIG_JIO_DEMO"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CONFIG_RTSP"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "PLATFORM_T40"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "WITH_DOM"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "WITH_OPENSSL"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "__LINUX__"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 11,
+					"path" : "/home/sj/camaraX/camera_cdb/main/.."
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../common/include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/ingenic/1.2.0/imp/include"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/ingenic/1.2.0/sysutils/include"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/media/include"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/rtsp/include"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/Users/include"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/thrdlibs/zlib/include"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/thrdlibs/zbar/include"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/thrdlibs/iniparse/include"
+				},
+				{
+					"backtrace" : 23,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/opencv_mips_7.2.0_2.29/include"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/fdk-aac/include"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/wifi/include"
+				},
+				{
+					"backtrace" : 26,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/led/include"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/misc/include"
+				},
+				{
+					"backtrace" : 28,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/reset_key/include"
+				},
+				{
+					"backtrace" : 29,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/ingenic/1.2.0/alg/include"
+				},
+				{
+					"backtrace" : 30,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/ingenic/1.2.0/ivs/include"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/motor/include"
+				},
+				{
+					"backtrace" : 32,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/i2c/include"
+				},
+				{
+					"backtrace" : 33,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/jio_demo/inc"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/jio_demo/inc/x264"
+				},
+				{
+					"backtrace" : 35,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/jio_demo/inc/ffmpeg"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/jio/include"
+				},
+				{
+					"backtrace" : 37,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/jio/include/libwebsockets-build"
+				},
+				{
+					"backtrace" : 38,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/jio/include/idip"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/jio/include/idip/details"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/rtsp_demo/include"
+				},
+				{
+					"backtrace" : 41,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/lux_server/include"
+				},
+				{
+					"backtrace" : 42,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/onvif/inc"
+				},
+				{
+					"backtrace" : 43,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/onvif/src"
+				},
+				{
+					"backtrace" : 44,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/onvif/src_soap_new_2"
+				},
+				{
+					"backtrace" : 45,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/openssl/include"
+				},
+				{
+					"backtrace" : 46,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/config/include"
+				},
+				{
+					"backtrace" : 47,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/factory_test/inc"
+				},
+				{
+					"backtrace" : 48,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/thrdlibs/rtsp2/inc"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				17,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -std=c++11 -pthread -Os -DNDEBUG"
+				},
+				{
+					"fragment" : "-std=gnu++11"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "CONFIG_BABY"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "CONFIG_JIO_DEMO"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CONFIG_RTSP"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "PLATFORM_T40"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "WITH_DOM"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "WITH_OPENSSL"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "__LINUX__"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 11,
+					"path" : "/home/sj/camaraX/camera_cdb/main/.."
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../common/include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/ingenic/1.2.0/imp/include"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/ingenic/1.2.0/sysutils/include"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/media/include"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/rtsp/include"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/Users/include"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/thrdlibs/zlib/include"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/thrdlibs/zbar/include"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/thrdlibs/iniparse/include"
+				},
+				{
+					"backtrace" : 23,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/opencv_mips_7.2.0_2.29/include"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/fdk-aac/include"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/wifi/include"
+				},
+				{
+					"backtrace" : 26,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/led/include"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/misc/include"
+				},
+				{
+					"backtrace" : 28,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/reset_key/include"
+				},
+				{
+					"backtrace" : 29,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/ingenic/1.2.0/alg/include"
+				},
+				{
+					"backtrace" : 30,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/ingenic/1.2.0/ivs/include"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/motor/include"
+				},
+				{
+					"backtrace" : 32,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../hal/i2c/include"
+				},
+				{
+					"backtrace" : 33,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/jio_demo/inc"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/jio_demo/inc/x264"
+				},
+				{
+					"backtrace" : 35,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/jio_demo/inc/ffmpeg"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/jio/include"
+				},
+				{
+					"backtrace" : 37,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/jio/include/libwebsockets-build"
+				},
+				{
+					"backtrace" : 38,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/jio/include/idip"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/jio/include/idip/details"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/rtsp_demo/include"
+				},
+				{
+					"backtrace" : 41,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../main/lux_server/include"
+				},
+				{
+					"backtrace" : 42,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/onvif/inc"
+				},
+				{
+					"backtrace" : 43,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/onvif/src"
+				},
+				{
+					"backtrace" : 44,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/onvif/src_soap_new_2"
+				},
+				{
+					"backtrace" : 45,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/openssl/include"
+				},
+				{
+					"backtrace" : 46,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/config/include"
+				},
+				{
+					"backtrace" : 47,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/factory_test/inc"
+				},
+				{
+					"backtrace" : 48,
+					"path" : "/home/sj/camaraX/camera_cdb/main/../modules/thrdlibs/rtsp2/inc"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "11"
+			},
+			"sourceIndexes" : 
+			[
+				15,
+				16,
+				18,
+				26
+			]
+		}
+	],
+	"id" : "media_sample::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-std=c++11 -pthread -Os -DNDEBUG",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wall -Wl,--gc-section",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-L/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/lux",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/system/bin",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lstdc++",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-ldl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/jio/jio_with_openssl/libidip.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/jio/jio_with_openssl/libmsgpackc.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/jio/jio_with_openssl/libwebsockets.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/libalog.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/libimp.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/libsysutils.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/third/libzbar.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/fdk-aac/libfdk-aac.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/openssl/libssl.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/openssl/libcrypto.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libperm_inf.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libpersonDet_inf.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libfaceDet_inf.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libvenus.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libmxu_merge.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libmxu_contrib.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libmxu_video.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libmxu_imgproc.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/ingenic/glibc/alg/libmxu_core.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/opencv/libopencv_core.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/opencv/libopencv_highgui.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/opencv/libopencv_imgproc.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/opencv/libopencv_imgcodecs.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/opencv/libopencv_videoio.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/opencv/libopencv_features2d.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/opencv/libopencv_flann.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/sj/camaraX/camera_cdb/main/../libs/7.2.0_1.2.0/opencv/libopencv_video.so.3.3",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-l_T40_LineCrossDet_opencv_glibc_v230412",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-l_T40_TamperingDet_opencv_glibc_v230516",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-l_T40_UMDet_opencv_glibc_v230601",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-l_T40_LoiterDet_alg_glibc_v230606",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "media_sample",
+	"nameOnDisk" : "media_sample",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/common/src/comm_def.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/common/src/comm_func.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/cJSON.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_audio.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_base.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_daynight.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_event.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_event_object.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_face_det.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_fsrc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_global.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_iniparse.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_ipc_control.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_isp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_ivs.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_linecross_det.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_loiter_det.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_nv2jpeg.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_object_det.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_osd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_perm_det.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_person_det.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_pwm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_record.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_summary.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_sys.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_tamper_det.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_time.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_video.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/media/src/lux_wifi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/Users/src/lux_users.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/config/src/lux_config.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/adler32.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/compress.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/crc32.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/deflate.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/gzclose.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/gzlib.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/gzread.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/gzwrite.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/infback.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/inffast.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/inflate.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/inftrees.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/trees.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/uncompr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/zlib/src/zutil.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/factory_test/src/lux_factory_test.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/hal/led/src/lux_hal_led.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/hal/misc/src/lux_hal_gpio.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/hal/misc/src/lux_hal_lightsns.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/hal/misc/src/lux_hal_misc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/hal/misc/src/lux_hal_pwm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/hal/motor/src/lux_hal_motor.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/hal/motor/src/ms419xx.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/hal/reset_key/src/lux_reset_key.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "sample-Encoder-video.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lux_server/src/hichannel_host_comm.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lux_server/src/lux_cmd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lux_server/src/lux_server.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/iniparser-master/iniparser-master/src/dictionary.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/iniparser-master/iniparser-master/src/iniparser.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/rtsp2/src/rtp_enc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/rtsp2/src/rtsp_api.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/rtsp2/src/rtsp_msg.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/rtsp2/src/rtsp_new.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/rtsp2/src/stream_queue.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/thrdlibs/rtsp2/src/utils.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_analytics.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_analyticsdevice.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_authenticationbehavior.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_deviceio.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_devicemgmt.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_display.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_event.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_imaging.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_media.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_media2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_recording.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module/onvif_func_remotediscovery.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "jio_demo/src/archive.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "jio_demo/src/demo_main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "jio_demo/src/playback.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/jio/src/lux_product_jio.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "rtsp_demo/src/rtp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "rtsp_demo/src/rtsp-demo.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "rtsp_demo/src/rtsp_main.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/soapC.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/soapServer.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/stdsoap2.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/dom.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/wsseapi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/wsaapi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/threads.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/smdevp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/mecevp.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/struct_timeval.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src_soap_new_2/httpda.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src/func_network.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src/onvif.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src/func_log.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src/func_video.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src/func_osd.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/sj/camaraX/camera_cdb/modules/onvif/src/authenticate.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

@@ -1,0 +1,14 @@
+prefix=/home/mc/jio/jio_demo/thirdparty/FFmpeg-release-4.0/out
+exec_prefix=${prefix}
+libdir=/home/mc/jio/jio_demo/thirdparty/FFmpeg-release-4.0/out/lib
+includedir=/home/mc/jio/jio_demo/thirdparty/FFmpeg-release-4.0/out/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 56.14.100
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil -pthread -lrt -lm
+Libs.private: 
+Cflags: -I${includedir}

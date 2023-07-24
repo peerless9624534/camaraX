@@ -1,0 +1,30 @@
+LUXSHARE_IPC 
+===========================
+
+###########目录结构描述
+├── common                      //模块通用的资源
+├── hal                         //硬件抽象层,led、wifi等
+├── libs                     	//第三方库
+│	 └──ingenic					//君正库
+│	 └──tuya 					//涂鸦库
+├── modules                     //功能模块
+│	 └──ingenic					//君正封装功能模块
+│	 └──media					//君正与涂鸦对接中间层
+│	 └──tuya					//涂鸦功能模块
+│	 └──main.c                  //app的主函数
+├── out                      	//目标执行程序输出目录
+│	 └──lib						//君正sdk封装输出的库文件（暂未使用）
+├── sample                      //测试sample程序
+│	 └──ingenic					//君正sample
+│	 └──tuya					//涂鸦sample
+│	 └──main.c					//sample测试主程序
+│	 └──Makefile				//make -> media_sample
+├── tools						//调试工具	
+├── Makefile                    //make -> media_app
+
+
+###########V1.0.0 版本内容更新
+1. 新功能     aaaaaaaaa
+2. 新功能     bbbbbbbbb
+3. 新功能     ccccccccc
+4. 新功能     ddddddddd
