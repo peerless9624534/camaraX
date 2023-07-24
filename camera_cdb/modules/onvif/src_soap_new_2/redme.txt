@@ -1,0 +1,16 @@
+添加模块如下：
+analytics.wsdl
+analyticsdevice.wsdl 
+authenticationbehavior.wsdl 
+deviceio.wsdl  
+devicemgmt.wsdl  
+display.wsdl 
+imaging.wsdl  
+media.wsdl  
+media2.wsdl  
+recording.wsdl   
+remotediscovery.wsdl 
+event.wsdl  
+devicemgmt.wsdl
+功能模块路径：/camaraX/camera_cdb/modules/onvif/src_soap_new_2/function_module
+2023年6月19日

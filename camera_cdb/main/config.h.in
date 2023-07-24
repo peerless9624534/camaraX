@@ -1,0 +1,13 @@
+
+
+#cmakedefine    CONFIG_JIO_DEMO
+
+#cmakedefine    CONFIG_RTSP
+
+#cmakedefine    PLATFORM_T31
+
+#cmakedefine    PLATFORM_T40
+
+#cmakedefine    deploy
+
+#cmakedefine    CONFIG_BABY

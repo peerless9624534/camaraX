@@ -1,0 +1,663 @@
+#include "avpkt_source.h"
+
+#include <sys/time.h>
+#include <assert.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <math.h>
+#include <idip.h>
+#include <idip/idip_utils.h>
+#include <idip/details/idip_ringbuf.h>
+
+#include <libavcodec/avcodec.h>
+#include <libavformat/avformat.h>
+#include <libavformat/version.h>
+#include <libavfilter/avfilter.h>
+#include <libavutil/time.h>
+
+#include "logger.h"
+
+// A wrapper to store AVPackets in the ringbuffer
+typedef struct AVPacketWrapper
+{
+    idip_ringbuf_item_base_t base; ///< ringbuffer requirements
+    AVPacket packet;               ///< a packet from ffmpeg
+}
+AVPacketWrapper;
+
+struct avpkt_source
+{
+    AVFormatContext* format_context;
+    int              video_stream_index;
+    int              audio_stream_index;
+    AVBitStreamFilterContext* filter;
+    int64_t          start_ts;
+    int64_t          start_mon_ts;
+    int64_t          start_rel_ts;
+    int64_t          send_mon_ts;
+    int64_t          last_video_ts;
+    unsigned         fps;
+    bool             loop;
+    uint8_t          key_frame_requested;  // atomic
+
+    // Current AVPacket
+    AVPacket packet;
+
+    // video and audio buffers
+    idip_ringbuf_t * video_packets;
+    idip_ringbuf_t * audio_packets;
+};
+
+//------------------------------------------------------------------------------
+#ifndef AVPKT_SOURCE_FF_API_STREAM_CODECPAR
+#define AVPKT_SOURCE_FF_API_STREAM_CODECPAR \
+    ((LIBAVFORMAT_VERSION_MAJOR > 57) || ((LIBAVFORMAT_VERSION_MAJOR == 57) && (LIBAVFORMAT_VERSION_MINOR >= 4)))
+#endif // AVPKT_SOURCE_FF_API_STREAM_CODECPAR
+//------------------------------------------------------------------------------
+#ifndef AVPKT_SOURCE_FF_API_AUTOMATIC_BITSTREAM_FILTERS
+#define AVPKT_SOURCE_FF_API_AUTOMATIC_BITSTREAM_FILTERS \
+    (LIBAVFORMAT_VERSION_MAJOR > 57) || ((LIBAVFORMAT_VERSION_MAJOR == 57) && (LIBAVFORMAT_VERSION_MINOR >= 21))
+#endif // AVPKT_SOURCE_FF_API_AUTOMATIC_BITSTREAM_FILTERS
+//------------------------------------------------------------------------------
+// Forwards
+static void clear_packet_buffer(idip_ringbuf_t* buffer);
+static int avpkt_source_force_key_frame(avpkt_source_t *self);
+static unsigned get_video_frame_interval(avpkt_source_t* self);
+static int buffer_packets(avpkt_source_t* self);
+static void remove_packets_older_than(avpkt_source_t *self, int media_index, idip_ringbuf_t * buffer, int64_t time);
+static int64_t
+avpkt_source_make_packet_time(avpkt_source_t* self, int stream_index, const AVPacket * packet);
+
+//------------------------------------------------------------------------------
+#if AVPKT_SOURCE_FF_API_STREAM_CODECPAR
+static inline AVCodecParameters* avpkt_source_get_stream_codec(AVStream* stream)
+{
+    return stream->codecpar;
+}
+#else
+static inline AVCodecContext* avpkt_source_get_stream_codec(AVStream* stream)
+{
+    return stream->codec;
+}
+#endif // AVPKT_SOURCE_FF_API_STREAM_CODECPAR
+#if !AVPKT_SOURCE_FF_API_AUTOMATIC_BITSTREAM_FILTERS
+//------------------------------------------------------------------------------
+static inline int avpkt_source_pad_packet_data(AVPacket *packet)
+{
+    int ret = 0;
+    uint8_t* data = av_malloc(packet->size + AV_INPUT_BUFFER_PADDING_SIZE);
+    if (data) {
+        memcpy(data, packet->data, packet->size);
+        memset(data + packet->size, 0, AV_INPUT_BUFFER_PADDING_SIZE);
+        packet->data = data;
+        packet->buf = NULL;
+        ret = 1;
+    } else {
+        ret = AVERROR(ENOMEM);
+    }
+    return ret;
+}
+#endif /* !AVPKT_SOURCE_FF_API_AUTOMATIC_BITSTREAM_FILTERS */
+//------------------------------------------------------------------------------
+static int avpkt_source_apply_bitstream_filters(AVCodecContext *codec_context, AVPacket *packet, AVBitStreamFilterContext *filter_context)
+{
+#if AVPKT_SOURCE_FF_API_AUTOMATIC_BITSTREAM_FILTERS
+    int ret = av_apply_bitstream_filters(codec_context, packet, filter_context);
+#else
+    int ret = 0;
+    while (filter_context && ret >= 0) {
+        AVPacket new_packet = *packet;
+        ret = av_bitstream_filter_filter(filter_context,
+                                           codec_context,
+                                           NULL,
+                                           &new_packet.data,
+                                           &new_packet.size,
+                                           packet->data,
+                                           packet->size,
+                                           (packet->flags & AV_PKT_FLAG_KEY));
+        if ((ret == 0) && (new_packet.data != packet->data))
+            ret = avpkt_source_pad_packet_data(&new_packet);
+
+        if (ret > 0) {
+            packet->side_data = NULL;
+            packet->side_data_elems = 0;
+            av_packet_unref(packet);
+            new_packet.buf = av_buffer_create(new_packet.data, new_packet.size, av_buffer_default_free, NULL, 0);
+            if (!new_packet.buf) {
+                ret = AVERROR(ENOMEM);
+            }
+        } else if (ret < 0) {
+            new_packet = *packet;
+
+            av_log(NULL,
+                   AV_LOG_ERROR,
+                   "Failed to open bitstream filter %s for stream %d with codec %s",
+                   filter_context->filter->name,
+                   packet->stream_index,
+                   codec_context ? codec_context->codec->name : "copy");
+
+        }
+        *packet = new_packet;
+
+        filter_context = filter_context->next;
+    }
+#endif // AVPKT_SOURCE_FF_API_AUTOMATIC_BITSTREAM_FILTERS
+    return ret;
+}
+//------------------------------------------------------------------------------
+static int avpkt_source_open_input_file(avpkt_source_t* self, const char* file_name)
+{
+    self->audio_stream_index = -1;
+    self->video_stream_index = -1;
+    self->start_rel_ts = INT64_MIN; // to bypass a time filter in the initial buffer_packets() call
+
+    int ret = avformat_open_input(&self->format_context, file_name, NULL, NULL);
+    if (ret < 0) {
+        self->format_context = NULL; //paranoid
+        av_log(NULL, AV_LOG_ERROR, "Cannot open input file\n");
+        return ret;
+    }
+
+    ret = avformat_find_stream_info(self->format_context, NULL);
+    if (ret < 0) {
+        avformat_close_input(&self->format_context); //close and set to NULL
+        av_log(NULL, AV_LOG_ERROR, "Cannot find stream information\n");
+        return ret;
+    }
+    unsigned int i = 0;
+    // find the H246 video stream
+    for ( i = 0; i < self->format_context->nb_streams; ++i ) {
+        if ( avpkt_source_get_stream_codec(self->format_context->streams[i])->codec_type == AVMEDIA_TYPE_VIDEO &&
+             avpkt_source_get_stream_codec(self->format_context->streams[i])->codec_id == AV_CODEC_ID_H264 ) {
+
+            av_log(NULL, AV_LOG_INFO, "FfmepgFileDemuxer create filter\n");
+            self->filter = av_bitstream_filter_init("h264_mp4toannexb");
+            if ( !self->filter ) {
+                avformat_close_input(&self->format_context);
+                av_log(NULL, AV_LOG_ERROR, "FfmepgFileDemuxer create filter error\n");
+                return -1;
+            }
+            self->video_stream_index = (int)i;
+            break; //only for first video stream
+        }
+    }
+
+    // find audio stream
+    for ( i = 0; i < self->format_context->nb_streams; ++i ) {
+        if( avpkt_source_get_stream_codec(self->format_context->streams[i])->codec_type == AVMEDIA_TYPE_AUDIO ) {
+            self->audio_stream_index = (int)i;
+            break;
+        }
+    }
+
+    av_dump_format(self->format_context, self->video_stream_index, file_name, 0);
+    if (self->video_stream_index < 0) {
+        IDIP_DELETE(self->filter, av_bitstream_filter_close);
+        avformat_close_input(&self->format_context);
+        return -1;
+    }
+
+    const AVRational rat_fps = av_guess_frame_rate(self->format_context, self->format_context->streams[self->video_stream_index], NULL);
+    self->fps = (unsigned)(rat_fps.num && rat_fps.den ? ceil(av_q2d(rat_fps)) : 25);
+    return 0;
+}
+//------------------------------------------------------------------------------
+static inline AVStream* avpkt_source_video_stream(avpkt_source_t* self)
+{
+    if( self->video_stream_index < 0 )
+        return NULL;
+    return self->format_context->streams[self->video_stream_index];
+}
+//------------------------------------------------------------------------------
+static inline AVStream* avpkt_source_audio_stream(avpkt_source_t* self)
+{
+    if( self->audio_stream_index < 0 )
+        return NULL;
+    return self->format_context->streams[self->audio_stream_index];
+}
+//------------------------------------------------------------------------------
+avpkt_source_t* avpkt_source_new_from_file(const char* file_path, bool loop)
+{
+    if( !file_path ) {
+        LOG_ERROR("Can't create avpkt_source: empty file name");
+        return  NULL;
+    }
+    avpkt_source_t* self = IDIP_NEW(*self);
+    if( !self ) {
+        LOG_ERROR("Can't create avpkt_source: %s", strerror(errno));
+        return  NULL;
+    }
+
+    if( avpkt_source_open_input_file(self, file_path) < 0 ) {
+        free(self);
+        return NULL;
+    }
+
+    self->loop = loop;
+    return self;
+}
+//------------------------------------------------------------------------------
+const char * avpkt_source_get_filename(avpkt_source_t* self)
+{
+#if LIBAVFORMAT_VERSION_MAJOR < 59
+    return self->format_context->filename;
+#else
+    return self->format_context->url;
+#endif // LIBAVFORMAT_VERSION_MAJOR < 59
+}
+//------------------------------------------------------------------------------
+static int avpkt_source_reopen(avpkt_source_t* self)
+{
+    IDIP_DELETE(self->filter, av_bitstream_filter_close);
+    clear_packet_buffer(self->video_packets);
+    clear_packet_buffer(self->audio_packets);
+    av_packet_unref(&self->packet);
+
+    const char * filename = avpkt_source_get_filename(self);
+    AVFormatContext * ctx_to_close = self->format_context;
+    self->format_context = NULL;
+    int res = 0;
+    if (avpkt_source_open_input_file(self, filename) != 0
+            || avpkt_source_force_key_frame(self) != 0) {
+        res = 1;
+    }
+
+    if (ctx_to_close)
+        avformat_close_input(&ctx_to_close);
+
+    return res;
+}
+//------------------------------------------------------------------------------
+static int avpkt_source_force_key_frame(avpkt_source_t *self)
+{
+    while (true) {
+        if (buffer_packets(self) != 0)
+            return 1;   // reached eos without found key frame
+
+        while (!idip_ringbuf_empty(self->video_packets)) {
+            AVPacketWrapper vpacket = {0};
+            idip_ringbuf_peek(self->video_packets, &vpacket, NULL);
+            self->start_rel_ts = avpkt_source_make_packet_time(self, self->video_stream_index, &vpacket.packet);
+            if (vpacket.packet.flags & AV_PKT_FLAG_KEY) {
+                if (self->last_video_ts > 0) {
+                    // Because we just emulate forcing the next frame to be the
+                    // key one, we actually seek the next key frame in the buffer
+                    // and correct its timestamp in order to make it the next one
+                    // on a timeline. So the main idea is:
+                    // next_video_frame_abs_ts = prev_video_frame_abs_ts + interframe_interval
+                    const int64_t next_vframe_rel_ms = self->last_video_ts - self->start_ts + get_video_frame_interval(self);
+                    self->start_ts += next_vframe_rel_ms;
+                    self->start_mon_ts += next_vframe_rel_ms;
+                }
+                remove_packets_older_than(self, self->audio_stream_index, self->audio_packets, self->start_rel_ts);
+                return 0;
+            }
+
+            av_packet_unref(&vpacket.packet);
+            idip_ringbuf_pop(self->video_packets);
+        }
+
+        remove_packets_older_than(self, self->audio_stream_index, self->audio_packets, self->start_rel_ts);
+        if (idip_ringbuf_full(self->audio_packets)) {
+            // It's rude, but we must free space for new audio packets
+            clear_packet_buffer(self->audio_packets);
+        }
+    }
+
+    return 1;
+}
+//------------------------------------------------------------------------------
+// time_base = format_context->streams[streamIdx]->time_base;
+static int64_t
+convert_time_to_ms(int64_t t, AVRational time_base)
+{
+    if (AV_NOPTS_VALUE == t)
+        return t;
+    if (time_base.num == 1 && time_base.den == 1000)
+        return t; // already milliseconds
+    return (1000.0 * av_q2d(time_base) * t);
+}
+//------------------------------------------------------------------------------
+static int64_t
+avpkt_source_make_packet_time(avpkt_source_t* self, int stream_index, const AVPacket *packet)
+{
+    AVStream* cur_stream = self->format_context->streams[stream_index];
+
+    if( packet->dts != AV_NOPTS_VALUE ) {
+        return convert_time_to_ms(packet->dts, cur_stream->time_base);
+    }
+    else if( packet->pts != AV_NOPTS_VALUE ) {
+        return convert_time_to_ms(packet->pts, cur_stream->time_base);
+    }
+    else {
+        return 0;//av_gettime();
+    }
+}
+//------------------------------------------------------------------------------
+static void clear_packet_buffer(idip_ringbuf_t* buffer)
+{
+    if (!buffer)
+        return;
+
+    AVPacketWrapper item;
+    while(idip_ringbuf_read(buffer, &item) == 0)
+        av_packet_unref(&item.packet);
+
+    idip_ringbuf_clear(buffer);
+}
+//------------------------------------------------------------------------------
+static void free_packet_buffer(idip_ringbuf_t * buffer)
+{
+    if (!buffer) return;
+    clear_packet_buffer(buffer);
+    idip_ringbuf_unref(buffer);
+}
+//------------------------------------------------------------------------------
+static bool has_buffered_packets(avpkt_source_t* self)
+{
+    return !idip_ringbuf_empty(self->video_packets) || !idip_ringbuf_empty(self->audio_packets);
+}
+//------------------------------------------------------------------------------
+static unsigned get_video_frame_interval(avpkt_source_t* self)
+{
+    return 1000 / self->fps;
+}
+//------------------------------------------------------------------------------
+static int buffer_packets(avpkt_source_t* self)
+{
+    while (!idip_ringbuf_full(self->video_packets) && !idip_ringbuf_full(self->audio_packets)) {
+        AVPacketWrapper item;
+        av_init_packet(&item.packet);
+        item.packet.data = NULL;
+        item.packet.size = 0;
+        item.packet.flags = 0;
+
+        int ret = av_read_frame(self->format_context, &item.packet);
+        if (ret < 0) {
+            av_packet_unref(&item.packet);
+            return has_buffered_packets(self) ? 0 : 1;
+        }
+
+        int64_t rel_time = avpkt_source_make_packet_time(self, item.packet.stream_index, &item.packet);
+        if (rel_time < self->start_rel_ts) {
+            // To be honest, this time filter is needed mostly for audio packets,
+            // because we set the 'start_rel_ts' value by analysing video packets
+            av_packet_unref(&item.packet);
+            continue;
+        }
+
+        // now 'packet' is refcounted
+        if (item.packet.stream_index == self->video_stream_index) {
+            AVStream * av_cur_stream = avpkt_source_video_stream(self);
+            ret = avpkt_source_apply_bitstream_filters(av_cur_stream->codec, &item.packet, self->filter);
+            if ( ret < 0 ) {
+                av_packet_unref(&item.packet);
+                continue;
+            }
+            idip_ringbuf_write(self->video_packets, &item);
+        } else if (item.packet.stream_index == self->audio_stream_index) {
+            idip_ringbuf_write(self->audio_packets, &item);
+        } else {
+            av_packet_unref(&item.packet);
+        }
+    }
+
+    return has_buffered_packets(self) ? 0 : 1;
+}
+//------------------------------------------------------------------------------
+static void remove_packets_older_than(avpkt_source_t *self, int media_index, idip_ringbuf_t * buffer, int64_t time)
+{
+    while (!idip_ringbuf_empty(buffer)) {
+        AVPacketWrapper packet = {0};
+        idip_ringbuf_peek(buffer, &packet, NULL);
+        if (avpkt_source_make_packet_time(self, media_index, &packet.packet) >= time)
+            return;
+
+        av_packet_unref(&packet.packet);
+        idip_ringbuf_pop(buffer);
+    }
+}
+//------------------------------------------------------------------------------
+int avpkt_source_get_next_packet(avpkt_source_t* self, avpkt_t* packet)
+{
+    memset(packet, 0, sizeof(*packet));
+    av_packet_unref(&self->packet); // unref previously used packet
+    const uint8_t was_key_frame_requested = __sync_fetch_and_and(&self->key_frame_requested, 0);
+    if (was_key_frame_requested)
+        avpkt_source_force_key_frame(self);
+
+    if (buffer_packets(self) != 0) {
+        if (!self->loop)
+            return 1; // eos
+
+        if (avpkt_source_reopen(self) != 0)
+            return 1; // error
+
+        if (buffer_packets(self) != 0)
+            return 1; // empty file?
+    }
+
+    int64_t video_pkt_ts = AV_NOPTS_VALUE, audio_pkt_ts = AV_NOPTS_VALUE;
+    AVPacketWrapper video_packet = {0}, audio_packet = {0};
+
+    if (idip_ringbuf_peek(self->video_packets, &video_packet, NULL) == 0) {
+        video_pkt_ts = avpkt_source_make_packet_time(self, self->video_stream_index, &video_packet.packet) - self->start_rel_ts;
+    }
+
+    if (idip_ringbuf_peek(self->audio_packets, &audio_packet, NULL) == 0) {
+        audio_pkt_ts = avpkt_source_make_packet_time(self, self->audio_stream_index, &audio_packet.packet) - self->start_rel_ts;
+    }
+
+    if (!audio_packet.packet.data || (video_packet.packet.data && video_pkt_ts <= audio_pkt_ts)) {
+        // video
+        assert(video_packet.packet.data);
+        idip_ringbuf_pop(self->video_packets);
+        packet->video = video_packet.packet.data;
+        packet->video_size = video_packet.packet.size;
+        packet->is_key_frame = (video_packet.packet.flags & AV_PKT_FLAG_KEY ? 1 : 0);
+        packet->ts_ms = self->start_ts + video_pkt_ts;
+        self->send_mon_ts = self->start_mon_ts + video_pkt_ts;
+        self->last_video_ts = packet->ts_ms;
+        self->packet = video_packet.packet;
+    } else {
+        // audio
+        assert(audio_packet.packet.data);
+        idip_ringbuf_pop(self->audio_packets);
+        packet->audio = audio_packet.packet.data;
+        packet->audio_size = audio_packet.packet.size;
+        packet->ts_ms = self->start_ts + audio_pkt_ts;
+        self->send_mon_ts = self->start_mon_ts + audio_pkt_ts;
+        self->packet = audio_packet.packet;
+    }
+
+    // buffering new packets until the time we need to send the next packet
+    buffer_packets(self);
+    return 0;
+}
+//------------------------------------------------------------------------------
+unsigned avpkt_source_get_fps(avpkt_source_t* self)
+{
+    return self->fps;
+}
+//------------------------------------------------------------------------------
+void avpkt_source_delete(avpkt_source_t* self)
+{
+    IDIP_DELETE(self->filter, av_bitstream_filter_close);
+    if( self->format_context ) {
+        avformat_close_input(&self->format_context);
+    }
+    free_packet_buffer(self->video_packets);
+    free_packet_buffer(self->audio_packets);
+    av_packet_unref(&self->packet);
+    free(self);
+}
+//------------------------------------------------------------------------------
+static video_codec_t video_codec_type_from_ffmpeg(enum AVCodecID ffmpegCodecId)
+{
+    switch(ffmpegCodecId)
+    {
+    case AV_CODEC_ID_NONE:  return VIDEO_CODEC_NONE;
+    case AV_CODEC_ID_MJPEG: return VIDEO_CODEC_MJPEG;
+    case AV_CODEC_ID_H264:  return VIDEO_CODEC_H264;
+    case AV_CODEC_ID_H265:  return VIDEO_CODEC_H265;//cxj test
+    default:
+        break;
+    };
+
+    return VIDEO_CODEC_NONE;
+}
+//------------------------------------------------------------------------------
+static audio_codec_t audio_codec_type_from_ffmpeg(enum AVCodecID ffmpegCodecId)
+{
+    switch(ffmpegCodecId)
+    {
+    case AV_CODEC_ID_NONE:      return AUDIO_CODEC_NONE;
+    case AV_CODEC_ID_AMR_NB:    return AUDIO_CODEC_AMR_NB;
+    case AV_CODEC_ID_AMR_WB:    return AUDIO_CODEC_AMR_WB;
+    case AV_CODEC_ID_AAC:       return AUDIO_CODEC_AAC;
+    case AV_CODEC_ID_MP3:       return AUDIO_CODEC_MP3;
+    case AV_CODEC_ID_PCM_MULAW: return AUDIO_CODEC_PCMU;
+    case AV_CODEC_ID_PCM_ALAW:  return AUDIO_CODEC_PCMA;
+    case AV_CODEC_ID_PCM_U16LE: return AUDIO_CODEC_PCM16LE;
+    case AV_CODEC_ID_PCM_S16LE: return AUDIO_CODEC_PCMS16LE;
+    case AV_CODEC_ID_PCM_S16BE: return AUDIO_CODEC_PCMS16BE;
+    case AV_CODEC_ID_ADPCM_IMA_WAV: return AUDIO_CODEC_IMA_WAV;
+    default:
+        break;
+    };
+
+    return AUDIO_CODEC_NONE;
+}
+//------------------------------------------------------------------------------
+static inline audio_sample_format_t
+audio_format_from_ffmpeg(enum AVSampleFormat format)
+{
+    switch(format)
+    {
+    case AV_SAMPLE_FMT_U8:      return AUDIO_SAMPLE_FORMAT_UINT8;
+    case AV_SAMPLE_FMT_S16:     return AUDIO_SAMPLE_FORMAT_INT16;
+    case AV_SAMPLE_FMT_S32:     return AUDIO_SAMPLE_FORMAT_INT32;
+    case AV_SAMPLE_FMT_FLT:     return AUDIO_SAMPLE_FORMAT_FLOAT;
+    case AV_SAMPLE_FMT_DBL:     return AUDIO_SAMPLE_FORMAT_DOUBLE;
+    case AV_SAMPLE_FMT_U8P:     return AUDIO_SAMPLE_FORMAT_UINT8P;
+    case AV_SAMPLE_FMT_S16P:    return AUDIO_SAMPLE_FORMAT_INT16P;
+    case AV_SAMPLE_FMT_S32P:    return AUDIO_SAMPLE_FORMAT_INT32P;
+    case AV_SAMPLE_FMT_FLTP:    return AUDIO_SAMPLE_FORMAT_FLOAT;
+    case AV_SAMPLE_FMT_DBLP:    return AUDIO_SAMPLE_FORMAT_DOUBLEP;
+    default:
+        break;
+    };
+
+    return AUDIO_SAMPLE_FORMAT_NONE;
+}
+//------------------------------------------------------------------------------
+static inline enum AVCodecID
+avpkt_source_get_codec_id(avpkt_source_t* self, int stream_index)
+{
+    return avpkt_source_get_stream_codec(self->format_context->streams[stream_index])->codec_id;
+}
+//------------------------------------------------------------------------------
+static inline void
+avpkt_source_get_resolution(avpkt_source_t* self, int stream_index, unsigned int *width, unsigned int *height)
+{
+    const int w = avpkt_source_get_stream_codec(self->format_context->streams[stream_index])->width;
+    const int h = avpkt_source_get_stream_codec(self->format_context->streams[stream_index])->height;
+    if (w > 0 && h > 0) {
+        *width = w;
+        *height = h;
+    } else {
+        *width = 0;
+        *height = 0;
+    }
+}
+//------------------------------------------------------------------------------
+int avpkt_source_video_info(avpkt_source_t* self, video_stream_info_t* v_info)
+{
+    if( !self || self->video_stream_index < 0 )
+        return -1;
+
+    if( v_info ) {
+        enum AVCodecID codec_id = avpkt_source_get_codec_id(self, self->video_stream_index);
+        v_info->codec = video_codec_type_from_ffmpeg(codec_id);
+        avpkt_source_get_resolution(self, self->video_stream_index, &v_info->width, &v_info->height);
+    }
+
+    return 0;
+}
+//------------------------------------------------------------------------------
+int avpkt_source_audio_info(avpkt_source_t* self, audio_stream_info_t* a_info)
+{
+    if( !self || self->audio_stream_index < 0 )
+        return -1;
+
+    if( a_info ) {
+#if 1
+        enum AVCodecID codec_id = avpkt_source_get_codec_id(self, self->audio_stream_index);
+
+# if AVPKT_SOURCE_FF_API_STREAM_CODECPAR
+        AVCodecParameters* c_params = avpkt_source_get_stream_codec(self->format_context->streams[self->audio_stream_index]);
+        a_info->codec_type = audio_codec_type_from_ffmpeg(codec_id);
+        a_info->channels = c_params->channels;
+        a_info->sample_rate = c_params->sample_rate;
+        a_info->sample_format = audio_format_from_ffmpeg(c_params->format);
+# else
+        AVCodecContext* c_params = avpkt_source_get_stream_codec(self->format_context->streams[self->audio_stream_index]);
+        a_info->codec_type = audio_codec_type_from_ffmpeg(codec_id);
+        a_info->channels = c_params->channels;
+        a_info->sample_rate = c_params->sample_rate;
+        a_info->sample_format = audio_format_from_ffmpeg(c_params->sample_fmt);
+# endif // AVPKT_SOURCE_FF_API_STREAM_CODECPAR
+
+#else
+        a_info->codec_type = AUDIO_CODEC_AAC;
+        a_info->sample_format = AUDIO_FORMAT_INT16;
+        a_info->channels = 1;
+        a_info->sample_rate = 44100;
+#endif
+    }
+
+    return 0;
+}
+//------------------------------------------------------------------------------
+int avpkt_source_start_play(avpkt_source_t *self, int64_t start_ts)
+{
+    self->start_ts = (start_ts < 0 ? (int64_t)get_time_utc_ms() : start_ts);
+    self->start_mon_ts = idip_monotonic_ms_now();
+    self->send_mon_ts = self->start_mon_ts;
+
+    free_packet_buffer(self->video_packets);
+    free_packet_buffer(self->audio_packets);
+    self->video_packets = NULL;
+    self->audio_packets = NULL;
+    const size_t ring_buf_size = 1.5 * self->fps;
+    if (idip_ringbuf_new(&self->video_packets, ring_buf_size, sizeof(AVPacketWrapper)) != 0)
+        return 1;
+
+    if (idip_ringbuf_new(&self->audio_packets, ring_buf_size, sizeof(AVPacketWrapper)) != 0)
+        return 1; // video_packets will be destroyed in the avpkt_source_delete()
+
+    av_init_packet(&self->packet);
+    self->packet.data = NULL;
+    self->packet.size = 0;
+    self->packet.flags = 0;
+    return avpkt_source_force_key_frame(self);
+}
+//------------------------------------------------------------------------------
+void avpkt_source_request_key_frame_safe(avpkt_source_t *self)
+{
+    __sync_or_and_fetch(&self->key_frame_requested, 1);
+}
+//------------------------------------------------------------------------------
+int64_t avpkt_source_get_next_frame_send_mon_time(avpkt_source_t *self)
+{
+    return self->send_mon_ts;
+}
+//------------------------------------------------------------------------------
+int64_t avpkt_source_get_duration_ms(const avpkt_source_t *self)
+{
+    if( !self || !self->format_context )
+        return 0;
+
+    return self->format_context->duration / 1000;
+}

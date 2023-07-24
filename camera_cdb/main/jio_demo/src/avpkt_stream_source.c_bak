@@ -1,0 +1,588 @@
+#include "avpkt_stream_source.h"
+
+#include <idip/idip_wrappers.h>
+#include <idip/idip_utils.h>
+#include <idip/idip_log.h>
+
+#include <string.h>
+#include <errno.h>
+#include <assert.h>
+#include <unistd.h>
+#include <inttypes.h>
+#include <string.h>
+#include "logger.h"
+
+
+// Default time for idip_av_source_t buffers limit
+#define DEFAULT_BUFFER_TIME_SEC             5
+#define DEFAULT_BUFFER_VIDEO_BITRATE_KBPS   2000
+#define DEFAULT_BUFFER_AUDIO_BITRATE_KBPS   64
+
+//------------------------------------------------------------------------------
+static void * avpkt_stream_source_sink_play_loop(void * avpkt_stream_source);
+//------------------------------------------------------------------------------
+static bool avpkt_stream_source_is_stopping(avpkt_stream_source_t* self)
+{
+    assert(self);
+    return __sync_or_and_fetch(&self->stopping, 0) != 0;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Starts an @a avpkt_stream_source_t object frame sending in a separate thread.
+ * @param self A pointer to an initialized @a avpkt_stream_source_t object to start frame sending from.
+ *             Must not be @a NULL.
+ *             Passing an uninitialized object results in undefined behavior.
+ * @return @a 0 if successful,
+ *         an @a errno value in case of error.
+ */
+// 在单独的线程中启动avpkt_stream_source_t对象帧发送。
+// 参数:
+// self–指向要开始帧发送的已初始化avpkt_stream_source_t对象的指针。不得为NULL。传递未初始化的对象会导致未定义的行为。
+// 返回:
+// 如果成功，则为0，如果出错，则为errno值。
+static int avpkt_stream_source_start_thread(avpkt_stream_source_t* self)
+{
+    pthread_attr_t joinable;
+    int err = pthread_attr_init(&joinable);
+    if (err) {
+        LOG_ERROR("Can't initialize an AV source thread attribute: %d - %s", err, strerror(err));
+        return IDIP_GENERIC_ERROR;
+    }
+
+    err = pthread_attr_setdetachstate(&joinable, PTHREAD_CREATE_JOINABLE);
+    if (err) {
+        LOG_ERROR("Can't set the AV source thread attribute joinalble: %d - %s", err, strerror(err));
+        pthread_attr_destroy(&joinable);
+        return IDIP_GENERIC_ERROR;
+    }
+
+    err = pthread_create(&self->thread, &joinable, &avpkt_stream_source_sink_play_loop, (void*)self);
+    pthread_attr_destroy(&joinable);
+    if (err == 0)
+        self->async = true;
+    else {
+        self->async = false;
+        LOG_ERROR("Can't start the AV source thread: %d - %s\n", err, strerror(err));
+        return IDIP_GENERIC_ERROR;
+    }
+
+    return IDIP_OK;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Stops an @a avpkt_stream_source_t object frame sending.
+ * @param self A pointer to an @a avpkt_stream_source_t object to stop.
+ *             Must not be @a NULL.
+ *             Passing an uninitialized object results in undefined behavior.
+ * @return @a 0 if successful,
+ *         an @a errno value in case of error.
+ */
+// 停止avpkt_stream_source_t对象帧发送。
+// 参数:
+// self–指向要停止的avpkt_stream_source_t对象的指针。不得为NULL。传递未初始化的对象会导致未定义的行为。
+// 返回:
+// 如果成功，则为0，如果出错，则为errno值。
+static int avpkt_stream_source_stop(avpkt_stream_source_t* self)
+{
+    __sync_or_and_fetch(&self->stopping, 1);
+    if (!self->async)
+        return 0;
+
+    self->async = false;
+    return pthread_join(self->thread, NULL);
+
+}
+//------------------------------------------------------------------------------
+int avpkt_stream_source_init(avpkt_stream_source_t* self, const char* filename,
+                             bool repeat_forever, bool async)
+{
+    assert(self);
+    assert(filename);
+
+    memset(self, 0, sizeof(avpkt_stream_source_t));
+    idip_mutex_init(&self->source_mutex);
+    idip_mutex_init(&self->av_sink_mutex);
+    self->source = avpkt_source_new_from_file(filename, repeat_forever);
+    if (!self->source) {
+        LOG_ERROR("Unable to open the source file: %s", filename);
+        goto fault;
+    }
+
+    if (0 != avpkt_source_video_info(self->source, &self->v_info)) {
+        LOG_ERROR("Unable to read the source video info");
+        goto fault;
+    }
+
+    if (0 != avpkt_source_audio_info(self->source, &self->a_info)) {
+        LOG_WARN("Unable to read the source audio info");
+        self->a_info = (audio_stream_info_t){
+            .codec_type = AUDIO_CODEC_NONE, .sample_format = AUDIO_SAMPLE_FORMAT_NONE, .channels = 0, .sample_rate = 0};
+    }
+
+    idip_av_limits_init_helper(&self->buffer_limits, DEFAULT_BUFFER_VIDEO_BITRATE_KBPS,
+                                                     DEFAULT_BUFFER_AUDIO_BITRATE_KBPS,
+                                                     DEFAULT_BUFFER_TIME_SEC
+    );
+    self->async = async;
+    if (async && avpkt_stream_source_start_thread(self) != IDIP_OK)
+        goto fault;
+
+    return 0;
+
+fault:
+    idip_mutex_destroy(&self->source_mutex);
+    idip_mutex_destroy(&self->av_sink_mutex);
+    IDIP_DELETE(self->source, avpkt_source_delete);
+    self->server = NULL;
+    return 1;
+}
+//------------------------------------------------------------------------------
+void avpkt_stream_source_destroy(avpkt_stream_source_t* self)
+{
+//    assert(self);
+    if (!self) {
+        return;
+    }
+
+    int err = avpkt_stream_source_stop(self);
+    if (err) {
+        LOG_ERROR("Failed to stop the stream source: %d - %s", err, strerror(err));
+        return;
+    }
+
+    idip_mutex_lock(&self->av_sink_mutex);
+    self->av_sink = NULL;
+    idip_mutex_unlock(&self->av_sink_mutex);
+
+    idip_mutex_lock(&self->source_mutex);
+    IDIP_DELETE(self->source, avpkt_source_delete);
+    idip_mutex_unlock(&self->source_mutex);
+
+    idip_mutex_destroy(&self->av_sink_mutex);
+    idip_mutex_destroy(&self->source_mutex);
+
+    self->server = NULL;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Locks an inner @c avpkt_source_t object of an @c avpkt_stream_source_t object
+ *        and fetches a packet from it.
+ * @param[in] self A pointer to a @c avpkt_stream_source_t object holding the @c avpkt_source_t
+ *                 to lock and fetch from.
+ *                 Must not be @c NULL,
+ *                 Must refer to an initialized @c avpkt_stream_source_t object.
+ * @param[out] packet A destination buffer to store the packet data.
+ *                    Must not be @c NULL.
+ *                    If the EOS is met, @a packet contents will be nullified.
+ * @return @c IDIP_OK if successful,
+ *         @c IDIP_GENERIC_ERROR if lock is already held by the calling thread,
+ *         @c IDIP_INVALID_ARGUMENTS if invalid arguments are passed.
+ */
+static idip_status_code_t avpkt_stream_source_fetch_packet(avpkt_stream_source_t* self, avpkt_t* packet)
+{
+    assert(self);
+    assert(packet);
+    if (!self || !packet) {
+        return IDIP_INVALID_ARGUMENTS;
+    }
+
+    idip_status_code_t rc = IDIP_OK;
+    idip_mutex_lock(&self->source_mutex);
+    if (avpkt_source_get_next_packet(self->source, packet) != 0) {
+        memset(packet, 0, sizeof(avpkt_t));
+        rc = IDIP_GENERIC_ERROR;
+    }
+
+    idip_mutex_unlock(&self->source_mutex);
+    return rc;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Returns fps of source video,        @c IDIP_INVALID_ARGUMENTS if invalid arguments are passed.
+ */
+static unsigned avpkt_stream_source_get_fps(avpkt_stream_source_t* self)
+{
+    assert(self);
+    if (!self) {
+        return IDIP_INVALID_ARGUMENTS;
+    }
+
+    unsigned res = 0;
+    idip_mutex_lock(&self->source_mutex);
+    res = avpkt_source_get_fps(self->source);
+    idip_mutex_unlock(&self->source_mutex);
+    return res;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Returns source video file name,        @c NULL if invalid arguments are passed.
+ */
+static char * avpkt_stream_source_get_filename(avpkt_stream_source_t* self)
+{
+    assert(self);
+    if (!self) {
+        return NULL;
+    }
+
+    char * res = NULL;
+    idip_mutex_lock(&self->source_mutex);
+    res = strdup(avpkt_source_get_filename(self->source));
+    idip_mutex_unlock(&self->source_mutex);
+    return res;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Locks an @a avpkt_stream_source_t object and pushes a packet to a saved
+ *        @c idip_av_source_t handle.
+ * @param[in] self A pointer to an @c avpkt_stream_source_t object to lock and
+ *                 push a packet from.
+ *                 Must not be @c NULL,
+ *                 Must refer to an initialized @c avpkt_stream_source_t object.
+ * @param[in] packet A packet to push.
+ *                   Must not be @c NULL.
+ * @return @c IDIP_OK if successful,
+ *         @c IDIP_GENERIC_ERROR if lock is already held by the calling thread,
+ *         @c IDIP_INVALID_ARGUMENTS if invalid arguments are passed.
+ */
+static idip_status_code_t avpkt_stream_source_push_to_av_source(avpkt_stream_source_t* self,
+                                                                       const avpkt_t* packet)
+{
+    assert(self);
+    assert(packet);
+    if (!self || !packet) {
+        return IDIP_INVALID_ARGUMENTS;
+    }
+
+    idip_status_code_t rc = IDIP_OK;
+    idip_mutex_lock(&self->av_sink_mutex);
+
+    if (!avpkt_stream_source_is_stopping(self) && self->av_sink) {
+        rc = idip_av_source_push(self->av_sink,
+                                 packet->ts_ms,
+                                 packet->audio,
+                                 packet->audio_size,
+                                 packet->video,
+                                 packet->video_size,
+                                 packet->is_key_frame);
+    }
+
+    idip_mutex_unlock(&self->av_sink_mutex);
+
+    return rc;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Locks and initializes the playback state of an @c avpkt_stream_source_t object.
+ * @param self A pointer to @c avpkt_stream_source_t object to initialize the playback of.
+ *             Must not be @c NULL.
+ *             Must refer to an initialized object.
+ * @return @c IDIP_OK if successful,
+ *         @c IDIP_INVALID_ARGUMENTS if @a self is @c NULL or it's not initialized,
+ *         @c IDIP_GENERIC_ERROR if lock is already held by the calling thread.
+ */
+static idip_status_code_t avpkt_stream_source_start_play(avpkt_stream_source_t* self)
+{
+    assert(self);
+
+    if (!self)
+        return IDIP_INVALID_ARGUMENTS;
+
+    idip_status_code_t rc = IDIP_OK;
+    idip_mutex_lock(&self->source_mutex);
+    if (self->source)
+        avpkt_source_start_play(self->source, -1);
+    else
+        rc = IDIP_GENERIC_ERROR;
+    idip_mutex_unlock(&self->source_mutex);
+    return rc;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Locks an @c avpkt_stream_source_t object and waits until it's next packet
+ *        timepoint is reached.
+ * @param self A pointer to @c avpkt_stream_source_t object to wait on.
+ *             Must not be @c NULL.
+ *             Must refer to an initialized object.
+ * @return @c IDIP_OK if successful,
+ *         @c IDIP_INVALID_ARGUMENTS if @a self is @c NULL or it's not initialized,
+ *         @c IDIP_GENERIC_ERROR if lock is already held by the calling thread.
+ */
+static idip_status_code_t avpkt_stream_source_playback_sleep(avpkt_stream_source_t* self)
+{
+    assert(self);
+    if (!self) {
+        return IDIP_INVALID_ARGUMENTS;
+    }
+
+    idip_status_code_t rc = IDIP_OK;
+    int64_t next_frame_send_mon_time = -1;
+    idip_mutex_lock(&self->source_mutex);
+    if (self->source) {
+        next_frame_send_mon_time = avpkt_source_get_next_frame_send_mon_time(self->source);
+    } else {
+        rc = IDIP_GENERIC_ERROR;
+    }
+    idip_mutex_unlock(&self->source_mutex);
+
+    if (next_frame_send_mon_time > 0) {
+        int64_t wait_ms = next_frame_send_mon_time - (int64_t)idip_monotonic_ms_now();
+        if (wait_ms > 0)
+            usleep(wait_ms * 1000);
+    }
+
+    return rc;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief Locks an @c avpkt_stream_source_t object and destroys it's inner @c avpkt_source_t
+ *        object used to fetch audio/video data from.
+ * @param self A pointer to an @c avpkt_stream_source_t object holding the @c avpkt_source_t.
+ *             Must not be @c NULL.
+ * @return @c IDIP_OK if successful,
+ *         @c IDIP_INVALID_ARGUMENTS if @a self is @c NULL or it's not initialized,
+ *         @c IDIP_GENERIC_ERROR if lock is already held by the calling thread.
+ */
+static idip_status_code_t avpkt_stream_source_close(avpkt_stream_source_t* self)
+{
+    assert(self);
+    if (!self) {
+        return IDIP_INVALID_ARGUMENTS;
+    }
+
+    idip_mutex_lock(&self->source_mutex);
+    IDIP_DELETE(self->source, avpkt_source_delete);
+    idip_mutex_unlock(&self->source_mutex);
+
+    return IDIP_OK;
+}
+//------------------------------------------------------------------------------
+static void update_stat(int64_t * ts, double * avgTs, double * maxTs, size_t * count)
+{
+    long long new_ts = idip_monotonic_ms_now();
+    long long delta = new_ts - *ts;
+    if (delta > *maxTs)
+        *maxTs = delta;
+
+    ++*count;
+    *avgTs = ((*avgTs * (*count - 1)) + delta) / (double) *count;
+    *ts = new_ts;
+}
+//------------------------------------------------------------------------------
+idip_status_code_t avpkt_stream_source_stream_play_loop(avpkt_stream_source_t * avpkt_stream_source, idip_stream_av_t *stream_av)
+{
+    assert(avpkt_stream_source);
+
+    idip_status_code_t rc = IDIP_OK;
+    double avg_send_ts = 0, max_send_ts = 0, avg_fetch_ts = 0, max_fetch_ts = 0;
+    size_t send_count = 0, fetch_count = 0, v_frames_count = 0;
+    int64_t ts = idip_monotonic_ms_now();
+    int64_t start_mon_ts = ts, start_vframe_ts = -1, last_vframe_ts = -1;
+
+    avpkt_t packet = {0};
+    rc = idip_stream_av_put_video_info(stream_av, &avpkt_stream_source->v_info, IDIP_INFINITE_TIMEOUT);
+    if (rc != IDIP_OK) {
+        LOG_ERROR("idip_stream_av_put_video_info error: %d", (int)rc);
+        return rc;
+    }
+
+    update_stat(&ts, &avg_send_ts, &max_send_ts, &send_count);
+
+    if (avpkt_stream_source->a_info.codec_type != AUDIO_CODEC_NONE) {
+        rc = idip_stream_av_put_audio_info(stream_av, &avpkt_stream_source->a_info, IDIP_INFINITE_TIMEOUT);
+        if (rc != IDIP_OK) {
+            LOG_ERROR("idip_stream_av_put_audio_info error: %d", (int)rc);
+            return rc;
+        }
+
+        update_stat(&ts, &avg_send_ts, &max_send_ts, &send_count);
+    }
+
+    rc = avpkt_stream_source_start_play(avpkt_stream_source);
+    if (rc != IDIP_OK) {
+        LOG_ERROR("avpkt_stream_source_start_play error: %d", (int)rc);
+        return rc;
+    }
+
+    update_stat(&ts, &avg_fetch_ts, &max_fetch_ts, &fetch_count);
+
+    while (!avpkt_stream_source_is_stopping(avpkt_stream_source)) {
+        rc = avpkt_stream_source_fetch_packet(avpkt_stream_source, &packet);
+        if ((rc != IDIP_OK) || (!packet.video && !packet.audio)) {
+            LOG_ERROR("Source packet fetching error");
+            break;
+        }
+
+        update_stat(&ts, &avg_fetch_ts, &max_fetch_ts, &fetch_count);
+        rc = avpkt_stream_source_playback_sleep(avpkt_stream_source);
+        if (rc != IDIP_OK) {
+            LOG_ERROR("Source playback sleeping error: %d", (int)rc);
+            break;
+        }
+
+        ts = idip_monotonic_ms_now();   // to exclude previous sleep time
+        if (packet.video && packet.video_size > 0) {
+            rc = idip_stream_av_put_video_frame(stream_av, packet.is_key_frame, packet.ts_ms, packet.video, packet.video_size, IDIP_INFINITE_TIMEOUT);
+            if (IDIP_OK != rc  ) {
+                LOG_ERROR("Source packet put video frame error: %d", (int)rc);
+                break;
+            }
+
+            update_stat(&ts, &avg_send_ts, &max_send_ts, &send_count);
+            ++v_frames_count;
+            last_vframe_ts = packet.ts_ms;
+            if (start_vframe_ts < 0)
+                start_vframe_ts = packet.ts_ms;
+        }
+
+        if (packet.audio && packet.audio_size > 0) {
+            rc = idip_stream_av_put_audio(stream_av, packet.ts_ms, packet.audio, packet.audio_size, IDIP_INFINITE_TIMEOUT);
+            if (IDIP_OK != rc  ) {
+                LOG_ERROR("Source packet put audio frame error: %d", (int)rc);
+                break;
+            }
+
+            update_stat(&ts, &avg_send_ts, &max_send_ts, &send_count);
+        }
+    }
+
+    char * filename = avpkt_stream_source_get_filename(avpkt_stream_source);
+    unsigned source_avg_vfps = avpkt_stream_source_get_fps(avpkt_stream_source);
+    double upload_time_sec = (idip_monotonic_ms_now() - start_mon_ts) / 1000.0;
+    double upload_avg_vfps = (upload_time_sec >= 1 ? (v_frames_count/upload_time_sec) : 0);
+    double source_time_sec = (last_vframe_ts - start_vframe_ts) / 1000.0;
+    LOG_INFO("Summary:\nfile: %s\nsend: %f/%f ms\nfetch: %f/%f ms\ntotal frames count: %lu (v: %lu, a: %lu)\n"
+             "upload/source duration: %f/%f sec\nupload/source avg video fps: %f/%d",
+             filename, avg_send_ts, max_send_ts, avg_fetch_ts, max_fetch_ts,
+             send_count, v_frames_count, (send_count - v_frames_count),
+             upload_time_sec, source_time_sec, upload_avg_vfps, source_avg_vfps);
+
+
+    free(filename);
+    avpkt_stream_source_close(avpkt_stream_source);
+    return rc;
+}
+//------------------------------------------------------------------------------
+/**
+ * @brief An @c avpkt_stream_source_t working thread body.
+ *        Fetches packets from a @c avpkt_source_t object that was created upon
+ *        initialization and pushes io an @c idip_av_source_t handle that was
+ *        registered using @ref avpkt_stream_source_register().
+ * @param[in] avpkt_stream_source A pointer to an @c avpkt_stream_source_t object
+ *                                holding both @c avpkt_source_t and @c idip_av_source_t
+ *                                objects and packet generation state.
+ * @return An @c idip_status_code_t value casted to @c void* indicating error:
+ *         @c IDIP_OK if thread exits on EOS,
+ *         @c IDIP_INVALID_ARGUMENTS if invalid arguments usage datected
+ *         @c IDIP_GENERIC_ERROR in case of recursive locking attempt detected or packet
+ *         fetching has failed.
+ */
+static void * avpkt_stream_source_sink_play_loop(void * avpkt_stream_source)
+{
+    assert(avpkt_stream_source);
+    idip_pthread_setname(pthread_self(), "[AVSRC]");
+
+    avpkt_stream_source_t* self = (avpkt_stream_source_t*)avpkt_stream_source;
+    idip_status_code_t rc = IDIP_OK;
+    avpkt_t packet = {0};
+    LOG_INFO("Starting a stream source");
+    if (avpkt_stream_source_start_play(self) != IDIP_OK)
+        return NULL;
+
+    while (!avpkt_stream_source_is_stopping(self)) {
+        rc = avpkt_stream_source_fetch_packet(self, &packet);
+        if ((rc != IDIP_OK) || (!packet.video && !packet.audio)) {
+            LOG_ERROR("Source packet fetching error");
+            break;
+        }
+
+        rc = avpkt_stream_source_playback_sleep(self);
+        if (rc != IDIP_OK) {
+            LOG_ERROR("Source playback sleeping error: %d", (int)rc);
+            break;
+        }
+
+        rc = avpkt_stream_source_push_to_av_source(self, &packet);
+        if (rc != IDIP_OK) {
+            LOG_ERROR("Source packet pushing error: %d", (int)rc);
+            break;
+        }
+    }
+
+    avpkt_stream_source_close(self);
+    return NULL;
+}
+//------------------------------------------------------------------------------
+int avpkt_stream_source_set(avpkt_stream_source_t* self, idip_server_t* server, idip_av_source_t* av_source)
+{
+    assert(self);
+    assert(av_source);
+    if (!self || !av_source) {
+        return EINVAL;
+    }
+
+    idip_mutex_lock(&self->av_sink_mutex);
+    self->av_sink = av_source;
+    self->server = server;
+    idip_mutex_unlock(&self->av_sink_mutex);
+
+    return 0;
+}
+//------------------------------------------------------------------------------
+int avpkt_stream_source_release(avpkt_stream_source_t* self, idip_server_t* server, idip_av_source_t* av_source)
+{
+    assert(self);
+    assert(av_source);
+    if (!self || !av_source) {
+        return EINVAL;
+    }
+
+    idip_mutex_lock(&self->av_sink_mutex);
+    if ((self->av_sink == av_source) && (self->server == server)) {
+        self->av_sink = NULL;
+        self->server = NULL;
+    }
+    idip_mutex_unlock(&self->av_sink_mutex);
+
+    return 0;
+}
+//------------------------------------------------------------------------------
+int avpkt_stream_source_reconfigure(avpkt_stream_source_t* self)
+{
+    assert(self);
+    if (!self) {
+        return EINVAL;
+    }
+
+    idip_mutex_lock(&self->av_sink_mutex);
+
+    idip_log_xdebug(__func__, "reconfiguring the stream source");
+    const int err = idip_server_av_source_update(self->server,
+                                       self->av_sink,
+                                       self->v_info,
+                                       self->a_info,
+                                       self->buffer_limits);
+
+    idip_mutex_unlock(&self->av_sink_mutex);
+
+    return err;
+}
+//------------------------------------------------------------------------------
+int avpkt_stream_source_force_video_key_frame(avpkt_stream_source_t * self)
+{
+    assert(self);
+    if (!self) {
+        return EINVAL;
+    }
+
+    if (avpkt_stream_source_is_stopping(self))
+        return 0;
+
+    idip_mutex_lock(&self->source_mutex);
+
+    if (self->source)
+        avpkt_source_request_key_frame_safe(self->source);
+
+    idip_mutex_unlock(&self->source_mutex);
+    return 0;
+}
+//------------------------------------------------------------------------------

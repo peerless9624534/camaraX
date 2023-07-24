@@ -1,0 +1,225 @@
+/*
+ * @Author: mc 2249913917@qq.com
+ * @Date: 2022-10-25 11:00:14
+ * @LastEditors: mc 2249913917@qq.com
+ * @LastEditTime: 2022-10-27 11:20:40
+ * @FilePath: /camera_cdb/main/jio_demo/src/jio_ipc_qrcode.c
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <fcntl.h>
+#include "comm_func.h"
+#include "lux_fsrc.h"
+#include "lux_qrcode.h"
+#include "lux_wifi.h"
+#include "cJSON.h"
+//#include "tuya_ipc_api.h"
+//#include "tuya_ipc_qrcode_proc.h"
+#include "idip.h"
+#include "lux_hal_led.h"
+#include "lux_ipc_control.h"
+
+char g_parseStr[QR_PARSE_STRLEN];
+extern OSI_SEM g_QrcodeSem;
+
+//----------static---------------------------------------------------
+static unsigned char* g_pQrcodeY;
+int g_qrThreadOngoing = 1;
+
+//-------------------------------------------------------------------
+int lux_parse_json_str(char* toParseStr, char* token, char* ssid, char* passwd)
+{
+    cJSON* tokenArr = NULL;
+    tokenArr = cJSON_Parse((CHAR_X*)toParseStr);
+    if (NULL == tokenArr)
+    {
+        printf("%s %d step error\n", __FUNCTION__, __LINE__);
+        //free(pResult);
+        return LUX_ERR;
+    }
+    int arrSize = cJSON_GetArraySize(tokenArr);
+    int i;
+    for (i = 0; i < arrSize; i++)
+    {
+        cJSON* tmp = cJSON_GetArrayItem(tokenArr, i);
+        if (NULL == tmp)
+        {
+            continue;
+        }
+        switch (i)
+        {
+        case 0:
+            strncpy(token, tmp->valuestring, strlen(tmp->valuestring));break;
+        case 1:
+            strncpy(ssid, tmp->valuestring, strlen(tmp->valuestring));break;
+        case 2:
+            strncpy(passwd, tmp->valuestring, strlen(tmp->valuestring));break;
+        }
+    }
+
+    if ((NULL == token) || (NULL == ssid) || (NULL == passwd))
+    {
+        printf("%s %d step error\n", __FUNCTION__, __LINE__);
+        return LUX_ERR;
+    }
+    printf("\n***************token: [%s] ssid: [%s] passwd: [%s]*********************\n", \
+                                token, ssid, passwd);
+    return LUX_OK;
+}
+
+//-------------------------------------------------------------------
+int __lux_linux_get_snap_qrcode(char* pQrcodeStr)
+{
+    int ret = -1;
+    int out_w = 0;
+    int out_h = 0;
+    unsigned char* enhance_qrcode_yuv = NULL;
+    LUX_DUMP_NV12_PIC_INFO_ST frame;
+
+    if (NULL == g_pQrcodeY || NULL == pQrcodeStr)
+    {
+        return ret;
+    }
+
+    memset(&frame, 0, sizeof(frame));
+    ret = LUX_FSrc_DumpNV12(1, g_pQrcodeY, &frame);
+    if (0 != ret)
+    {
+        printf("%s:%d ret:%#x\n", __func__, __LINE__, ret);
+        return ret;
+    }
+    ret = Tuya_Ipc_QRCode_Enhance(g_pQrcodeY, QR_CODE_CHN_WIDTH, QR_CODE_CHN_HEIGHT, &enhance_qrcode_yuv, &out_w, &out_h, QR_CODE_THRESH, 0);
+    if (0 != ret)
+    {
+        printf("%s:%d ret:%#x\n", __func__, __LINE__, ret);
+        return ret;
+    }
+
+    //use enhance_qrcode_yuv to parse
+    ret = LUX_COMM_Zbar_Parse((void*)enhance_qrcode_yuv, out_w, out_h, pQrcodeStr);
+    if (0 != ret)
+    {
+        //printf("%s:%d ret:%#x\n", __func__, __LINE__, ret);
+        ret = -1;
+    }
+
+    //free
+    if (enhance_qrcode_yuv)
+    {
+        free(enhance_qrcode_yuv);
+        enhance_qrcode_yuv = NULL;
+    }
+
+    return ret;
+}
+
+//-------------------------------------------------------------------
+/* 退出二维码扫描线程 */
+void QR_Thread_Exit()
+{
+    g_qrThreadOngoing = 0;
+
+    return;
+}
+
+//-------------------------------------------------------------------
+char g_tokenStr[IDIP_TOKEN_LEN + 1];
+char g_ssidStr[WIFI_SSID_LEN + 1];
+char g_passwdStr[WIFI_PASSWD_LEN + 1];
+
+
+extern int lux_wf_connect(const char *ssidStr, const char *passwdStr);
+void* thread_qrcode(void* arg)
+{
+    int ret = 0;
+    printf("Qrcode Thread start\r\n");
+    char* g_qrcodeStr = (char*)arg;
+    if (NULL == g_pQrcodeY)
+    {
+        g_pQrcodeY = malloc(QR_CODE_CHN_WIDTH * QR_CODE_CHN_HEIGHT * 2);
+        if (NULL == g_pQrcodeY)
+        {
+            printf("QRCODE malloc memery error!\n");
+            return NULL;
+        }
+    }
+    LUX_HAL_LedSetStatus(LUX_HAL_LED_RED, LUX_HAL_LED_1_HZ);
+    while (g_qrThreadOngoing)
+    {
+        memset(g_qrcodeStr, 0, QR_PARSE_STRLEN);
+        ret = __lux_linux_get_snap_qrcode(g_qrcodeStr);
+        if (0 == ret)
+        {
+            printf("get string from qrcode %s\r\n", g_qrcodeStr);
+            // strncpy(arg, g_qrcodeStr, QR_PARSE_STRLEN);
+            ret = lux_parse_json_str(g_qrcodeStr, g_tokenStr, g_ssidStr, g_passwdStr);
+            if (ret == LUX_OK)
+            {
+                printf("parse to json str via qrcode success\r\n");
+            }
+
+            /*ret = lux_wf_connect(g_ssidStr, g_passwdStr);
+            if (ret == LUX_OK)
+            {
+                printf("wifi connect via qrcode success\r\n");
+            }*/
+            FILE* out = fopen(QR_PARSE_FILE, "wt");
+            if (!out) 
+            {
+                printf("Can't create QR data file %s: %s", QR_PARSE_FILE, strerror(errno));
+                fclose(out);
+                usleep(20 * 1000);
+                return NULL;
+            }
+            else
+            {
+                printf("Success create QR data file %s \r\n", QR_PARSE_FILE);
+                fprintf(out, "%s\r\n", g_qrcodeStr);
+                fclose(out);
+                printf("Success write QR data in file\r\n");
+                //显示写入的数据
+                LUX_BASE_System_CMD("cat "QR_PARSE_FILE"");
+                chmod(QR_PARSE_FILE, S_IRUSR | 
+                                     S_IWUSR |
+                                     S_IRGRP |
+                                     S_IWGRP |
+                                     S_IROTH |
+                                     S_IWOTH );
+                break;
+            }
+            g_qrThreadOngoing = false;
+            break;
+        }
+        usleep(100 * 1000);
+    }
+
+    /* 两种情况：1.ap配网成功，不播提示音；2.扫码成功，播提示音 */
+    LUX_HAL_LedSetStatus(LUX_HAL_LED_RED, LUX_HAL_LED_OFF);
+    if (NULL != g_pQrcodeY)
+    {
+        free(g_pQrcodeY);
+    }
+    printf("Qrcode Proc Finish\r\n");
+    return NULL;
+}
+
+//-------------------------------------------------------------------
+void lux_qrcode_parse()
+{
+    printf("Enable Qrcode \r\n");
+    // Semaphore_Create(0, &g_QrcodeSem);
+    pthread_t qrcode_thId; // ID of capture thread
+    pthread_create(&qrcode_thId, NULL, thread_qrcode, g_parseStr);
+    pthread_detach(qrcode_thId);
+    /* 开始扫码 */
+    // Semaphore_Post(&g_QrcodeSem);
+}
+
+// #endif
+
