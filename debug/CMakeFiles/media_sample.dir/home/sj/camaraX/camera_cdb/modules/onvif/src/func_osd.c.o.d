@@ -1,0 +1,28 @@
+CMakeFiles/media_sample.dir/home/sj/camaraX/camera_cdb/modules/onvif/src/func_osd.c.o: \
+ /home/sj/camaraX/camera_cdb/modules/onvif/src/func_osd.c \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/stdc-predef.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/stdio.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/libc-header-start.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/features.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/sys/cdefs.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/wordsize.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/sgidefs.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/long-double.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/gnu/stubs.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/gnu/stubs-o32_hard_2008.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include/stddef.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include/stdarg.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/timesize.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/typesizes.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/time64.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/__fpos_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/__mbstate_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/__fpos64_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/__FILE.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/FILE.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_FILE.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/stdio_lim.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/sys_errlist.h \
+ /home/sj/camaraX/camera_cdb/main/../modules/onvif/inc/func_log.h \
+ /home/sj/camaraX/camera_cdb/main/../modules/onvif/inc/config.h

@@ -1,0 +1,27 @@
+#!/bin/bash
+#echo arges num $#
+if [ $# -lt 2 ];then
+    echo "usage -n <gpionum>, [-l] set active low"
+    exit 1
+fi
+GPIO_NUM=""
+ACTIVE_LOW=0
+while getopts ":n:l" opt
+do 
+    case $opt in
+        n)
+            GPIO_NUM=$OPTARG
+        ;;
+        l)
+            ACTIVE_LOW=1
+        ;;
+        ?)
+            echo "usage -n <gpionum> [-r] revert"
+            exit 1
+        ;;
+    esac
+done
+echo gpio $GPIO_NUM, active low $ACTIVE_LOW
+echo $GPIO_NUM > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio$GPIO_NUM/direction
+echo $ACTIVE_LOW > /sys/class/gpio/gpio$GPIO_NUM/active_low

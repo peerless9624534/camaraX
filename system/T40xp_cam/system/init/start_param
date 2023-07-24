@@ -1,0 +1,36 @@
+sensor:sc2232
+isp_param:isp_clk=200000000
+carrier_server_param:--nrvbs 3
+
+sensor:gc2053
+sensor_param:sensor_max_fps=25
+isp_param:isp_clk=200000000
+carrier_server_param:--nrvbs 3 --i2c=0x37 -w 1920 -h 1080 --fps=25 --sboot=0
+
+sensor:sc2135
+isp_param:isp_clk=200000000
+carrier_server_param:--nrvbs 3
+
+sensor:imx307
+isp_param:isp_clk=200000000
+carrier_server_param:--nrvbs 2 --i2c=0x1a -w 1920 -h 1080 --fps=25 --sboot=0
+
+sensor:sc8238
+isp_param:isp_clk=300000000
+carrier_server_param:--nrvbs 2
+
+sensor:gc4653
+isp_param:isp_clk=300000000
+carrier_server_param:--nrvbs 2 --i2c=0x29 -w 2560 -h 1440 --fps=15 --sboot=0
+
+sensor:imx327
+isp_param:isp_clk=200000000
+carrier_server_param:--nrvbs 2 --i2c=0x1a -w 1920 -h 1080 --fps=25 --sboot=0
+
+sensor:os02k10
+isp_param:isp_clk=200000000
+carrier_server_param:--nrvbs 2 --i2c=0x10 -w 1920 -h 1080 --fps=25 --sboot=0
+
+sensor:sc200ai
+isp_param:isp_clk=200000000
+carrier_server_param:--nrvbs 2 --i2c=0x30 -w 1920 -h 1080 --fps=25 --sboot=0

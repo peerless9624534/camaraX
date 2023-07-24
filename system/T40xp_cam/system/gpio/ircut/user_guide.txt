@@ -1,0 +1,11 @@
+1. link "open_ircut.sh, close_ircut.sh, gpio_init"  to device /system/bin directory;
+2. After the device is powered on, the serial port (or Telnet) will be put into the file directory: 
+	$ cd /system/bin/
+3. Execute “gpio_init“ to initialize GPIO port:
+	$ ./gpio_init
+4. Select to perform open or close IRcut:
+	$ ./open_ircut.sh       or
+	$ ./close_ircut.sh
+5. Check the video effect through THE RTSP pull stream;
+Through shell command viewing ircut control high and low level of port, after switched all values are 0
+$ cat/sys/class/gpio/gpio122/value;Cat/sys/class/gpio/gpio123/value

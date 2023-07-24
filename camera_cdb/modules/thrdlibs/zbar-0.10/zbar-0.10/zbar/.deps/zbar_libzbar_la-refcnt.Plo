@@ -1,0 +1,120 @@
+zbar/zbar_libzbar_la-refcnt.lo: zbar/refcnt.c \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/stdc-predef.h \
+ zbar/refcnt.h include/config.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/assert.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/features.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/sys/cdefs.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/wordsize.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/sgidefs.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/long-double.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/gnu/stubs.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/gnu/stubs-o32_hard_2008.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/pthread.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/endian.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/endian.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/byteswap.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/timesize.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/typesizes.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/time64.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/uintn-identity.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/sched.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include/stddef.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/time_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_timespec.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/sched.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_sched_param.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/cpu-set.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/time.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/time.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/clock_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_tm.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/clockid_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/timer_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_itimerspec.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/locale_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/__locale_t.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/pthreadtypes.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/thread-shared-types.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/pthreadtypes-arch.h \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/setjmp.h
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/stdc-predef.h:
+
+zbar/refcnt.h:
+
+include/config.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/assert.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/features.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/sys/cdefs.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/wordsize.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/sgidefs.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/long-double.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/gnu/stubs.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/gnu/stubs-o32_hard_2008.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/pthread.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/endian.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/endian.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/byteswap.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/timesize.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/typesizes.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/time64.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/uintn-identity.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/sched.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/lib/gcc/mips-linux-gnu/7.2.0/include/stddef.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/time_t.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_timespec.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/sched.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_sched_param.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/cpu-set.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/time.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/time.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/clock_t.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_tm.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/clockid_t.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/timer_t.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/struct_itimerspec.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/locale_t.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/types/__locale_t.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/pthreadtypes.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/thread-shared-types.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/pthreadtypes-arch.h:
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/bits/setjmp.h:

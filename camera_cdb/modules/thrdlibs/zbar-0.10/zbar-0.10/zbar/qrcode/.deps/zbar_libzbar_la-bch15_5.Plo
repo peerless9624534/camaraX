@@ -1,0 +1,7 @@
+zbar/qrcode/zbar_libzbar_la-bch15_5.lo: zbar/qrcode/bch15_5.c \
+ /opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/stdc-predef.h \
+ zbar/qrcode/bch15_5.h
+
+/opt/mips-linux-gnu-ingenic-gcc7.2.0-glibc2.29-fp64/mips-linux-gnu/libc/usr/include/stdc-predef.h:
+
+zbar/qrcode/bch15_5.h:

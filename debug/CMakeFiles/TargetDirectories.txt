@@ -1,0 +1,4 @@
+/home/sj/camaraX/debug/CMakeFiles/media_sample.dir
+/home/sj/camaraX/debug/CMakeFiles/run_copy_command.dir
+/home/sj/camaraX/debug/CMakeFiles/edit_cache.dir
+/home/sj/camaraX/debug/CMakeFiles/rebuild_cache.dir

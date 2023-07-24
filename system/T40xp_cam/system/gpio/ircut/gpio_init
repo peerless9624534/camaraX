@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo 122 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio122/direction
+echo 0 > /sys/class/gpio/gpio122/active_low
+
+echo 123 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio123/direction
+echo 0 > /sys/class/gpio/gpio123/active_low
+
